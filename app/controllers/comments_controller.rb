@@ -5,10 +5,8 @@ class CommentsController < ApplicationController
   end
 
   def create
-    #@user = User.find_by(params[:id])
     @prototype = Prototype.find_by(params[:id])
     @comment = @prototype.comments.new(comment_params)
-    #binding.pry
     @comment.save
     if @comment.save
       redirect_to controller: :prototypes, action: :show, id: @prototype.id
