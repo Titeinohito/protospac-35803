@@ -1,5 +1,6 @@
 <% if num == 1 %>
-  <%= form_with model: @prototypes, url: prototypes_path, local: true do |f|%>
+  <%# 編集用 %>
+  <%= form_with model: @prototype, url: prototype_path, local: true do |f|%>
     <div class="field">
       <%= f.label :title, "プロトタイプの名称" %><br />
       <%= f.text_field :title, id:"prototype_title" %>
@@ -25,7 +26,8 @@
     </div>
   <% end %>
 <% else %>
-  <%= form_with model: @prototype, url: prototypes_path, local: true do |f|%>
+  <%# 投稿用 %>
+  <%= form_with model: @prototypes, url: prototypes_path, local: true do |f|%>
     <div class="field">
       <%= f.label :title, "プロトタイプの名称" %><br />
       <%= f.text_field :title, id:"prototype_title" %>
