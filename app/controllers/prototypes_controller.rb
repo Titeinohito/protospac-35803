@@ -18,7 +18,6 @@ class PrototypesController < ApplicationController
 
   def create
     @user = User.find_by(params[:id])
-    binding.pry
     @prototype = @user.prototypes.new(prototype_params)
     @prototype.save
     if @prototype.save
@@ -37,7 +36,6 @@ class PrototypesController < ApplicationController
 
   def update
     @prototype = Prototype.find(params[:id])
-    binding.pry
     @prototype.update(prototype_params)
 
     if @prototype.update(prototype_params)

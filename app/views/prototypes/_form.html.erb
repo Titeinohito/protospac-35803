@@ -27,7 +27,7 @@
   <% end %>
 <% else %>
   <%# 投稿用 %>
-  <%= form_with model: @prototypes, url: prototypes_path, local: true do |f|%>
+  <%= form_with model: @prototype, url: prototypes_path, local: true do |f|%>
     <div class="field">
       <%= f.label :title, "プロトタイプの名称" %><br />
       <%= f.text_field :title, id:"prototype_title" %>
