@@ -17,21 +17,22 @@ class PrototypesController < ApplicationController
   end
 
   def create
-    @user = User.find_by(params[:id])
-    @prototype = @user.prototypes.new(prototype_params)
-    @prototype.save
-    if @prototype.save
+    #@user = User.find(params[:id])
+    #@prototype = @user.prototypes.new(prototype_params)
+    #@prototype.save
+    Prototype.create(prototype_params)
+    if Prototype.create
       redirect_to action: :index
     else
-      render new_prototype_path
+      render action: :new
     end
   end
 
   def edit
-    unless user_signed_in?
+    @prototype = Prototype.find(params[:id])
+    unless current_user.id == @prototype.user_id
       redirect_to action: :index
     end
-    @prototype = Prototype.find(params[:id])
   end
 
   def update
@@ -41,7 +42,7 @@ class PrototypesController < ApplicationController
     if @prototype.update(prototype_params)
       redirect_to action: :show
     else
-      render edit_prototype_path
+      render action: :edit
     end
   end
 

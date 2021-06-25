@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by(params[:id])
 
     @name = @user.name
     @profile = @user.profile
@@ -8,5 +8,6 @@ class UsersController < ApplicationController
     @position = @user.position
 
     @prototypes = @user.prototypes
+    
   end
 end

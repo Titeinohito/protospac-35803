@@ -29,8 +29,8 @@
         </div>
       </div>
       <div class="prototype__comments">
-        <% if user_signed_in? && current_user.id == @prototype.user_id %>
-          <%= form_with model: @comment, url: comments_path, local: true do |f|%>
+        <% if user_signed_in? %>
+          <%= form_with model: [@prototype, @comment], local: true do |f|%>
             <div class="field">
               <%= f.label :text, "コメント" %><br />
               <%= f.text_field :text, id:"comment_text" %>
