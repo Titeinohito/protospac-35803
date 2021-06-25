@@ -17,9 +17,6 @@ class PrototypesController < ApplicationController
   end
 
   def create
-    #@user = User.find(params[:id])
-    #@prototype = @user.prototypes.new(prototype_params)
-    #@prototype.save
     Prototype.create(prototype_params)
     if Prototype.create
       redirect_to action: :index
